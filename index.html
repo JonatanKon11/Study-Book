@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f7f1">
+    <title>Diario de Estudio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Registro personal de aprendizaje</p>
+          <h1>Diario de Estudio</h1>
+        </div>
+        <p class="intro">Un espacio para reconocer lo que avanzas, sesión a sesión.</p>
+      </header>
+
+      <section class="dashboard" aria-label="Resumen y registro de estudio">
+        <section class="streak-panel" aria-labelledby="streak-heading">
+          <div class="streak-topline">
+            <p class="panel-label" id="streak-heading">Racha actual</p>
+            <span class="flame" aria-hidden="true">✳</span>
+          </div>
+          <p class="streak-number"><span id="streak-count">0</span><span class="streak-unit">días</span></p>
+          <div class="streak-stats" aria-label="Resumen de estudio">
+            <p class="streak-stat"><span>Mejor racha</span><strong><span id="best-streak-count">0</span><small>días</small></strong></p>
+            <p class="streak-stat"><span>Esta semana</span><strong id="weekly-minutes">0 min</strong></p>
+            <p class="streak-stat"><span>Este mes</span><strong id="monthly-study-days">0 días</strong></p>
+          </div>
+          <p class="streak-message" id="streak-message" aria-live="polite">Empieza hoy para encender tu racha.</p>
+        </section>
+
+        <section class="form-panel" aria-labelledby="form-heading">
+          <div class="section-heading">
+            <h2 id="form-heading">Registrar sesión</h2>
+            <p>Guarda el tiempo que dedicaste a aprender.</p>
+          </div>
+          <form id="session-form">
+            <label class="field">
+              <span>Fecha</span>
+              <input id="session-date" name="date" type="date" required>
+            </label>
+            <label class="field">
+              <span>Tema</span>
+              <input id="session-topic" name="topic" type="text" placeholder="¿Qué has estudiado?" required maxlength="120">
+            </label>
+            <label class="field">
+              <span>Minutos</span>
+              <input id="session-minutes" name="minutes" type="number" min="0.01" step="any" placeholder="25" required>
+            </label>
+            <button class="submit-button" type="submit">Guardar sesión <span aria-hidden="true">↗</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </section>
+
+      <section class="heatmap-section" aria-labelledby="heatmap-heading">
+        <div class="heatmap-heading">
+          <div>
+            <h2 id="heatmap-heading">Actividad diaria</h2>
+            <p>Tu ritmo de estudio durante las últimas 12 semanas.</p>
+          </div>
+        </div>
+        <p class="heatmap-empty" id="heatmap-empty" hidden>No hay sesiones registradas en este periodo.</p>
+        <div class="heatmap-months" id="heatmap-months" aria-hidden="true">
+          <span class="heatmap-axis-spacer"></span>
+        </div>
+        <div class="heatmap-layout">
+          <div class="heatmap-weekdays" aria-hidden="true">
+            <span>lun</span>
+            <span>mar</span>
+            <span>mié</span>
+            <span>jue</span>
+            <span>vie</span>
+            <span>sáb</span>
+            <span>dom</span>
+          </div>
+          <div class="heatmap-weeks" id="heatmap-weeks" aria-label="Mapa de actividad de las últimas 12 semanas"></div>
+        </div>
+        <div class="heatmap-footer">
+          <p class="heatmap-detail" id="heatmap-detail" aria-live="polite">Selecciona un día con actividad para ver sus detalles.</p>
+          <ul class="heatmap-legend" aria-label="Intensidad de estudio">
+            <li><span class="heatmap-swatch" data-intensity="0" aria-hidden="true"></span>Sin actividad</li>
+            <li><span class="heatmap-swatch" data-intensity="1" aria-hidden="true"></span>Menos</li>
+            <li><span class="heatmap-swatch" data-intensity="2" aria-hidden="true"></span></li>
+            <li><span class="heatmap-swatch" data-intensity="3" aria-hidden="true"></span></li>
+            <li><span class="heatmap-swatch" data-intensity="4" aria-hidden="true"></span>Más</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sessions-section" aria-labelledby="sessions-heading">
+        <div class="sessions-heading-row">
+          <div>
+            <h2 id="sessions-heading">Sesiones</h2>
+            <p>Tu recorrido, del día más reciente al primero.</p>
+          </div>
+          <p class="session-count" id="session-count">0 sesiones</p>
+        </div>
+        <p class="empty-state" id="empty-state">Todavía no hay sesiones. La primera empieza cuando tú quieras.</p>
+        <ol class="session-list" id="session-list" aria-live="polite"></ol>
+      </section>
+      <footer class="page-footer">Un poco cada día también es avanzar.</footer>
+    </main>
+  </body>
+</html>

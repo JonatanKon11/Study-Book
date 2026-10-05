@@ -1,0 +1,12 @@
+[1mdiff --git a/MEMORY.md b/MEMORY.md[m
+[1mindex 5904b95..f198ee8 100644[m
+[1m--- a/MEMORY.md[m
+[1m+++ b/MEMORY.md[m
+[36m@@ -18,6 +18,7 @@[m
+ - Revalidación solicitada de T1 (2026-10-05): sus 2 pruebas enfocadas pasan; suite completa 14/14 y `node --check app.js` pasan. T1 ya estaba marcada; no se inició T2.[m
+ - Las observaciones de QA sobre intensidad, límites, interacción y validez de sesiones se resolvieron en la spec antes de implementar el mapa.[m
+ - Revalidación completa del mapa (2026-10-05): 14/14 tests y `node --check app.js` pasan; el navegador muestra 12 semanas/78 días y conserva las cinco sesiones existentes.[m
+[32m+[m[32m- Preparación para GitHub (2026-10-05): repo local `main` con commit inicial `a231917`, árbol limpio; publicación pública en `JonatanKon11/diario-de-estudio-ia` pendiente de autenticación de GitHub en navegador.[m
+ - Auditoría RF mapa (2026-10-05): RF-1–RF-5 y RF-8 cubiertos por tests/navegador; RF-6 probado con ratón/teclado, no con touch nativo porque el contexto no admite emulación táctil. RF-7: `minutes: "30"` se cuenta tras coerción; spec no aclara si cadenas numéricas son válidas.[m
+ [m
+ ## Decisiones y motivos[m
